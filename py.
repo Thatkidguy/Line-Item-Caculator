@@ -1,0 +1,39 @@
+def main():
+    """ Runs the Invoice Line Item Calculator program. """
+    print("The Invoice Line Item Calculator\n")
+
+    while True:
+        # --- Get and validate the price from the user ---
+        while True:
+            try:
+                price = float(input("Enter price: "))
+                break  # Exit loop if input is a valid float
+            except ValueError:
+                print("Invalid decimal number. Please try again.")
+
+        # --- Get and validate the quantity from the user ---
+        while True:
+            try:
+                quantity = int(input("Enter quantity: "))
+                break  # Exit loop if input is a valid integer
+            except ValueError:
+                print("Invalid integer. Please try again.")
+
+        # --- Calculate the total ---
+        total = price * quantity
+
+        # --- Display the results, formatted to 2 decimal places ---
+        print(f"\nPRICE:    {price:.2f}")
+        print(f"QUANTITY: {quantity}")
+        print(f"TOTAL:    {total:.2f}\n")
+
+        # --- Ask the user to continue ---
+        another_item = input("Enter another line item? (y/n): ").lower()
+        if another_item != 'y':
+            break  # Exit the main loop if the answer isn't 'y'
+
+    print("\nBye!")
+
+# Run the main function when the script is executed
+if __name__ == "__main__":
+    main()
